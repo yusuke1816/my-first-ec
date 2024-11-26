@@ -138,6 +138,20 @@ main {
         padding: 0;
 }
 
+
+.added-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 128, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
     nav ul {
