@@ -81,12 +81,12 @@ function updateCart() {
 }
  
 // 購入て続き（id=checkout-btn)をおすとクリックイベントで下のifが実行
-const checkoutBtn = document.getElementById('checkout-btn');
+const checkoutBtn = document.getElementById('checkout-btn2');
 checkoutBtn.addEventListener('click', () => {
     //カートの中身が0以上なら以下を実行
     if (cart.length > 0) {
-        alert('購入手続きが完了しました！');
-        cart = [];
+        
+        
         localStorage.setItem('cart', JSON.stringify(cart)); // Clear cart from localStorage
         updateCart();
         updateCartIcon();
@@ -94,7 +94,6 @@ checkoutBtn.addEventListener('click', () => {
         alert('カートに商品を追加してください。');
     }
 });
- 
 // カートにアイテムを追加した時のメッセージ
 function showAddedMessage() {
     const message = document.createElement('div');

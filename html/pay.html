@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購入手続き</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pay.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <style>
+        /* 全体のスタイル */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* メイン部分 */
+        main {
+            padding: 50px 20px;
+            max-width: 100%; /* フォームが画面全体に広がるように */
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .checkout {
+            margin: 0 auto;
+            max-width: 100%; /* フォームの幅を画面いっぱいに広げる */
+            width: 100%; /* 幅を100%に設定 */
+        }
+
+        .checkout h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        fieldset {
+            border: none;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            width: 1000px;
+            margin-top: 100px;
+        }
+
+        legend {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="month"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            background-color: #fafafa;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="month"]:focus,
+        input[type="number"]:focus {
+            border-color: #f39c12;
+            outline: none;
+        }
+
+        button {
+            background-color: #f39c12;
+            color: white;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e67e22;
+        }
+
+        /* 注文内容の表示 */
+        .order-summary {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-summary p {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .order-summary .total {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="logo">
+            <h1>Fashion Shop</h1>
+        </div>
+        <nav>
+            <ul class="nav-ul">
+                <li><a href="/html/main.html">ホーム</a></li>
+                <li><a href="#">商品一覧</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="checkout">
+
+                 <!-- 3. 注文内容確認 -->
+                 <section class="cart">
+                    <h2>カートの中身</h2>
+                    <div id="cart-items">
+                        <p>カートに商品がありません。</p>
+                    </div>
+                </section>
+            <h2>購入手続き</h2>
+
+
+
+            <!-- 購入手続きフォーム -->
+            <form action="/submit-order" method="POST">
+                <!-- 1. 顧客情報 -->
+                <fieldset>
+                    <legend>顧客情報</legend>
+                    <label for="name">お名前:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">メールアドレス:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">電話番号:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="address">住所:</label>
+                    <input type="text" id="address" name="address" required>
+
+                    <label for="city">市区町村:</label>
+                    <input type="text" id="city" name="city" required>
+
+                    <label for="postal">郵便番号:</label>
+                    <input type="text" id="postal" name="postal" required>
+                </fieldset>
+
+                <!-- 2. 支払い情報 -->
+                <fieldset>
+                    <legend>支払い情報</legend>
+                    <label for="card-number">カード番号:</label>
+                    <input type="text" id="card-number" name="card-number" maxlength="16" required>
+
+                    <label for="expiry-date">有効期限:</label>
+                    <input type="month" id="expiry-date" name="expiry-date" required>
+
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" maxlength="3" required>
+
+                    <label for="cardholder">カード名義人:</label>
+                    <input type="text" id="cardholder" name="cardholder" required>
+                </fieldset>
+
+           
+
+                <!-- 4. 注文完了ボタン -->
+                <button id="checkout-btn2" type="submit">注文を確定する</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2024 Fashion Shop</p>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

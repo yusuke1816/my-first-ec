@@ -49,6 +49,8 @@ nav ul li a {
     
 
 }
+
+
 /* メインコンテナを中央に配置 */
 main {
     display: flex;
@@ -125,6 +127,16 @@ main {
     transition: background-color 0.3s;
 }
 
+#checkout-btn2 {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
 #checkout-btn:hover {
     background-color: #218838;
 }
@@ -151,6 +163,79 @@ main {
     font-size: 16px;
 }
 
+
+@media screen and (max-width: 1500px) {
+	/* 959px以下に適用されるCSS（タブレット用） */
+
+/* セクションタグを中央に配置 */
+.product-list {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;  /* 商品が折り返す */
+    justify-content: center;  /* 横方向の中央揃え */
+    gap: 0px;  /* 商品間のスペース */
+}
+
+/* 商品アイテムのスタイル */
+.product {
+    text-align: center;
+    width: 230px;  /* 商品の幅を指定 */
+    margin: 10px;  /* 商品間のマージン */
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+	/* 959px以下に適用されるCSS（タブレット用） */
+
+/* セクションタグを中央に配置 */
+.product-list {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;  /* 商品が折り返す */
+    justify-content: center;  /* 横方向の中央揃え */
+    gap: 0px;  /* 商品間のスペース */
+}
+
+/* 商品アイテムのスタイル */
+.product {
+    text-align: center;
+    width: 180px;  /* 商品の幅を指定 */
+    margin: 10px;  /* 商品間のマージン */
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+}
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
