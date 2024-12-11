@@ -85,15 +85,19 @@ const checkoutBtn = document.getElementById('checkout-btn2');
 checkoutBtn.addEventListener('click', () => {
     //カートの中身が0以上なら以下を実行
     if (cart.length > 0) {
-        
-        
+        window.open('succsess.html');
         localStorage.setItem('cart', JSON.stringify(cart)); // Clear cart from localStorage
         updateCart();
         updateCartIcon();
+        
     } else { //カートの中身が0以下なら以下を実行
         alert('カートに商品を追加してください。');
+        window.open('main.html');
     }
 });
+
+
+
 // カートにアイテムを追加した時のメッセージ
 function showAddedMessage() {
     const message = document.createElement('div');
