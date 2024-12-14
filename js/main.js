@@ -84,8 +84,7 @@ function updateCart() {
 const checkoutBtn = document.getElementById('checkout-btn2');
 checkoutBtn.addEventListener('click', () => {
     //カートの中身が0以上なら以下を実行
-    if (cart.length > 0) {
-        window.open('succsess.html');
+    if (cart.length > 0) { 
         localStorage.setItem('cart', JSON.stringify(cart)); // Clear cart from localStorage
         updateCart();
         updateCartIcon();
@@ -96,6 +95,7 @@ checkoutBtn.addEventListener('click', () => {
     }
 });
 
+const test=cart
 
 
 // カートにアイテムを追加した時のメッセージ
