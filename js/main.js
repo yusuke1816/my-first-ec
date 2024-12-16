@@ -1,17 +1,18 @@
 /*在庫状態をinstockでここに保存
 productsとしてid,nameなどのデータを保持*/
 const products = [
-    { id: 1, name: "シャツ", price: 2500, inStock: true },
-    { id: 2, name: "ジーンズ", price: 3000, inStock: false },
-    { id: 3, name: "ジャケット", price: 5000, inStock: false },
-    { id: 4,name:"ジャケット",price:5000,inStock:true},
-    { id: 5, name: "シャツ", price: 2500, inStock: true },
-    { id: 6, name: "ジーンズ", price: 3000, inStock: false },
-    { id: 7, name: "ジャケット", price: 5000, inStock: false },
-    { id: 8,name:"ジャケット",price:5000,inStock:true},
-    { id: 9, name: "シャツ", price: 2500, inStock: true },
-    { id: 10, name: "ジーンズ", price: 3000, inStock: false },
+    { id: 1, name: "シャツ", price: 2500, inStock: true, stock: 10 },
+    { id: 2, name: "ジーンズ", price: 3000, inStock: false, stock: 0 },
+    { id: 3, name: "ジャケット", price: 5000, inStock: false, stock: 0 },
+    { id: 4, name: "ジャケット", price: 5000, inStock: true, stock: 5 },
+    { id: 5, name: "シャツ", price: 2500, inStock: true, stock: 8 },
+    { id: 6, name: "ジーンズ", price: 3000, inStock: false, stock: 0 },
+    { id: 7, name: "ジャケット", price: 5000, inStock: false, stock: 0 },
+    { id: 8, name: "ジャケット", price: 5000, inStock: true, stock: 4 },
+    { id: 9, name: "シャツ", price: 2500, inStock: true, stock: 6 },
+    { id: 10, name: "ジーンズ", price: 3000, inStock: false, stock: 0 },
 ];
+
  
 //cart.htmlのid-cartをcartとして定義して使いまわす//
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -20,13 +21,11 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 document.addEventListener("DOMContentLoaded", () => {
     const productElements = document.querySelectorAll('.product');
  
-    //productsのindexをproductとして定義
-    productElements.forEach((productElement, index) => { //??????
+    productElements.forEach((productElement, index) => {
         const product = products[index];
         const button = productElement.querySelector('button');
  
-        /*if文でカートに追加か売り切れかの分岐clickイベントで在庫があるなら*/
-        if (product.inStock) {
+        if (product.inStock && product.stock > 0) {
             button.textContent = "カートに追加";
             button.disabled = false;
         } else {
@@ -34,25 +33,56 @@ document.addEventListener("DOMContentLoaded", () => {
             button.disabled = true; // 売り切れのボタンは無効に
         }
  
-        // ifで在庫があればクリックで下のaddtocart関数を実行
         button.addEventListener('click', () => {
-            if (product.inStock) {
+            if (product.stock > 0) {
                 addToCart(product);
             }
         });
     });
- 
+
     // カートアイコンの更新
     updateCartIcon();
 });
- 
+
 // カートへの追加
 function addToCart(product) {
-    cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage ??????????
-    updateCartIcon();
-    showAddedMessage();
+    // 在庫があればカートに追加
+    if (product.stock > 0) {
+        cart.push(product);
+        product.stock--;  // 購入された商品の在庫を減らす
+        if (product.stock === 0) {
+            product.inStock = false;  // 在庫が0になった場合は売り切れ
+        }
+
+        if (product.stock === 1) {
+            const add = document.getElementById(`add-${product.id}`);
+            add.innerHTML = "<button>売り切れ</button>"; // "Sold out" button
+            
+            // Assuming `product.id` holds the unique product ID
+            const addButton = document.getElementById(`add-${product.id}`);
+            
+            // Change the background color for this specific button
+            if (addButton) {
+                addButton.style.backgroundColor = 'red';
+            }
+        }
+        
+
+        // localStorageにカートを保存
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // カートアイコンの更新
+        updateCartIcon();
+        
+        // 追加メッセージの表示
+        showAddedMessage();
+
+        console.log(product.stock)
+    } else {
+        alert('在庫がありません。');
+    }
 }
+
  
 // カートアイコンの更新
 //<span id="cart-count">0</span>を変数cartCountとして定義
