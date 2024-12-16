@@ -54,18 +54,24 @@ function addToCart(product) {
             product.inStock = false;  // 在庫が0になった場合は売り切れ
         }
 
-        if (product.stock === 1) {
-            const add = document.getElementById(`add-${product.id}`);
+        if (product.stock === 0) {
+            const  add = document.getElementById(`add-${product.id}`);
+            add.disabled = true;
+            add.textContent = "売り切れ";
+            console.log(product.stock)
+
+            /*
+            const  add = document.getElementById(`add-${product.id}`);
             add.innerHTML = "<button>売り切れ</button>"; // "Sold out" button
-            
+            add.stock==0
             // Assuming `product.id` holds the unique product ID
             const addButton = document.getElementById(`add-${product.id}`);
             
             // Change the background color for this specific button
             if (addButton) {
                 addButton.style.backgroundColor = 'red';
-            }
-        }
+            
+        }*/}
         
 
         // localStorageにカートを保存
