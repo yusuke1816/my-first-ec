@@ -1,15 +1,15 @@
 /*在庫状態をinstockでここに保存
 productsとしてid,nameなどのデータを保持*/
 const products = [
-    { id: 1, name: "シャツ", price: 2500, inStock: true, stock: 10 },
-    { id: 2, name: "ジーンズ", price: 3000, inStock: false, stock: 0 },
+    { id: 1, name: "シャツ", price: 2500, inStock: true, stock: 3 },
+    { id: 2, name: "ジーンズ", price: 3000, inStock: true, stock: 2 },
     { id: 3, name: "ジャケット", price: 5000, inStock: false, stock: 0 },
     { id: 4, name: "ジャケット", price: 5000, inStock: true, stock: 5 },
-    { id: 5, name: "シャツ", price: 2500, inStock: true, stock: 8 },
-    { id: 6, name: "ジーンズ", price: 3000, inStock: false, stock: 0 },
+    { id: 5, name: "シャツ", price: 2500, inStock: true, stock: 3 },
+    { id: 6, name: "ジーンズ", price: 3000, inStock: true, stock: 1 },
     { id: 7, name: "ジャケット", price: 5000, inStock: false, stock: 0 },
     { id: 8, name: "ジャケット", price: 5000, inStock: true, stock: 4 },
-    { id: 9, name: "シャツ", price: 2500, inStock: true, stock: 6 },
+    { id: 9, name: "シャツ", price: 2500, inStock: true, stock: 2 },
     { id: 10, name: "ジーンズ", price: 3000, inStock: false, stock: 0 },
 ];
 
@@ -151,3 +151,22 @@ function showAddedMessage() {
 document.addEventListener("DOMContentLoaded", () => {
     updateCart();
 });
+
+
+
+// カートを空にする処理
+function clearCart() {
+    cart = []; // カートの内容をリセット
+    localStorage.setItem('cart', JSON.stringify(cart)); // localStorageのカートも更新
+    updateCart(); // カートの中身を表示
+    updateCartIcon(); // カートアイコンの更新
+}
+
+// カートを空にするボタンのイベントリスナー
+const clearCartBtn = document.getElementById('clear-cart-btn');
+clearCartBtn.addEventListener('click', () => {
+    if (confirm('本当にカートを空にしますか？')) {
+        clearCart(); // カートを空にする関数を実行
+    }
+});
+
