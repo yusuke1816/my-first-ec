@@ -1,0 +1,58 @@
+
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購入手続き</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/qa.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Fashion Shop</h1>
+        </div>
+        <nav>
+            <ul class="nav-ul">
+                <li><a href="/html/main.html">ホーム</a></li>
+                <li><a href="/">商品一覧</a></li>
+                <li><a href="/html/a.html"><img class="cart-img" src="../img/icons8-ショッピングカート-100.png" alt=""></a>
+                    <span id="cart-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- 購入手続きフォーム（QAフォーム） -->
+
+    <!---->
+    <section id="qa-form-section">
+        <h2>質問・お問い合わせフォーム</h2>
+        <form id="qa-form" action="/submit_question" method="POST">
+            <div class="form-group">
+                <label for="name">お名前</label>
+                <input type="text" id="name" name="name" required placeholder="お名前を入力してください">
+            </div>
+            <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email" required placeholder="メールアドレスを入力してください">
+            </div>
+            <div class="form-group">
+                <label for="question">ご質問内容</label>
+            </div>
+                <textarea id="question" name="question" rows="4" required placeholder="ご質問を入力してください"></textarea>
+            <button type="submit">送信</button>
+        </form>
+    </section>
+
+    <footer class="footer-footer">
+        <p class="footer-p">&copy; 2024 Fashion Shop</p>
+    </footer>
+
+
+    <script src="../js/qa.js"></script>
+</body>
+</html>
