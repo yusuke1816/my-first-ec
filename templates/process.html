@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ファッション通販サイト</title>
+    <!-- Flask用の静的ファイルパス修正 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="logo">
+            <h1>Fashion Shop</h1>
+        </div>
+        <nav>
+            <ul class="nav-ul">
+                <li><a href="{{ url_for('main') }}">ホーム</a></li>
+                <li><a href="#">商品一覧</a></li>
+                <li><a href="{{url_for('qa')}}">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart">
+            <h2>カートの中身</h2>
+            <!-- カートの中身を表示するエリア -->
+            <div id="cart-items"></div>
+
+            <!-- カートを空にするボタン -->
+            <button id="clear-cart-btn">カートを空にする</button>
+
+            <!-- 合計金額表示 -->
+            <p id="total-price">合計金額: ¥0</p>
+            <span id="cart-count">0</span>  <!-- カート内の商品数を表示 -->
+
+            <!-- 購入手続きボタン -->
+            <button id="checkout-btn2">購入手続き</button>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 Fashion Shop</p>
+    </footer>
+
+    <!-- Flask用の静的ファイル -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

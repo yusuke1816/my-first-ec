@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ファッション通販サイト</title>
+    <!-- CSS のパス修正 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="logo">
+            <h1>Fashion Shop</h1>
+        </div>
+        <nav>
+            <ul class="nav-ul">
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">商品一覧</a></li>
+                <li><a href="{{ url_for('qa') }}">お問い合わせ</a></li>
+                <li><a href="{{ url_for('process') }}"><img class="cart-img" src="{{ url_for('static', filename='img/icons8.png') }}" alt=""></a>
+                    <span id="cart-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- メインコンテンツ -->
+    <main>
+        <img class="bigimg" src="{{ url_for('static', filename='img/bigimg.webp') }}" alt="">
+
+        <section class="product-list">
+            <!-- 商品1 -->
+            <div class="product" data-id="1">
+                <img src="{{ url_for('static', filename='img/black.jpg') }}" alt="商品1">
+                <h3>シャツ</h3>
+                <p>価格: ¥2,500</p>
+                <button id="add-1" class="add-to-cart" data-status="in-stock">カートに追加</button>
+            </div>
+
+            <!-- 商品2 -->
+            <div class="product" data-id="2">
+                <img src="{{ url_for('static', filename='img/pink.jpg') }}" alt="商品2">
+                <h3>スカート</h3>
+                <p>価格: ¥3,000</p>
+                <button id="add-2" class="add-to-cart" data-status="sold-out">カートに追加</button>
+            </div>
+
+            <!-- 商品3 -->
+            <div class="product" data-id="3">
+                <img src="{{ url_for('static', filename='img/white.jpg') }}" alt="商品3">
+                <h3>ジャケット</h3>
+                <p>価格: ¥5,000</p>
+                <button id="add-3" class="add-to-cart" data-status="in-stock">カートに追加</button>
+            </div>
+
+            <div class="product" data-id="4">
+                <img src="{{ url_for('static', filename='img/red.jpg') }}" alt="商品4">
+                <h3>Tシャツ</h3>
+                <p>価格: ¥5,000</p>
+                <button id="add-4" class="add-to-cart" data-status="in-stock">カートに追加</button>
+            </div>
+
+            <div class="product" data-id="5">
+                <img src="{{ url_for('static', filename='img/blackpink.jpg') }}" alt="商品5">
+                <h3>ワンピース</h3>
+                <p>価格: ¥5,000</p>
+                <button id="add-5" class="add-to-cart" data-status="in-stock">カートに追加</button>
+            </div>
+        </section>
+
+        <section class="product-list">
+            <!-- 商品6 -->
+            <div class="product" data-id="6">
+                <img src="{{ url_for('static', filename='img/check.jpg') }}" alt="商品6">
+                <h3>チェック柄スカート</h3>
+                <p>価格: ¥3,000</p>
+                <button id="add-7" class="add-to-cart" data-status="sold-out">カートに追加</button>
+            </div>
+
+            <!-- 商品7 -->
+            <div class="product" data-id="7">
+                <img src="{{ url_for('static', filename='img/white.jpg') }}" alt="商品7">
+                <h3>ジャケット</h3>
+                <p>価格: ¥5,000</p>
+                <button id="add-8" class="add-to-cart" data-status="in-stock">カートに追加</button>
+            </div>
+
+            <!-- 商品8 -->
+            <div class="product" data-id="8">
+                <img src="{{ url_for('static', filename='img/blackskirt.jpg') }}" alt="商品8">
+                <h3>ブラックスカート</h3>
+                <p>価格: ¥4,000</p>
+                <button id="add-9" class="add-to-cart" data-status="in-stock">カートに追加</button>
+            </div>
+
+            <!-- 商品9 -->
+            <div class="product" data-id="9">
+                <img src="{{ url_for('static', filename='img/ribbon.jpg') }}" alt="商品9">
+                <h3>リボン</h3>
+                <p>価格: ¥1,000</p>
+                <button id="add-10" class="add-to-cart" data-status="in-stock">カートに追加</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer-footer">
+        <p class="footer-p">&copy; 2024 Fashion Shop</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
