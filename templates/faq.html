@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よくある質問</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/qa.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <style>
+        .faq-container {
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .faq-container h1 {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 2.5em;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .faq-item h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .faq-item p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- <header>
+        <div class="logo">
+            <h1>Fashion Shop</h1>
+        </div>
+        <nav>
+            <ul class="nav-ul">
+                <li><a href="{{ url_for('main') }}">ホーム</a></li>
+                <li><a href="#">商品一覧</a></li>
+                <li><a href="{{ url_for('process') }}"><img class="cart-img" src="{{ url_for('static', filename='img/icons8.png') }}" alt=""></a>
+                    <span id="cart-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>-->
+   
+
+    <div class="faq-container">
+        <h1>よくある質問</h1>
+
+        <div class="faq-item">
+            <h2>Q1: 商品の返品はできますか？</h2>
+            <p>A1: はい、商品到着後7日以内であれば返品を受け付けております。詳細については返品ポリシーをご確認ください。</p>
+        </div>
+
+        <div class="faq-item">
+            <h2>Q2: 配送方法について教えてください。</h2>
+            <p>A2: 配送方法は宅配便、メール便があり、地域によって異なります。注文時にご確認ください。</p>
+        </div>
+
+        <div class="faq-item">
+            <h2>Q3: 支払い方法にはどのようなものがありますか？</h2>
+            <p>A3: クレジットカード、銀行振込、代金引換などをご利用いただけます。</p>
+        </div>
+
+        <a href="{{ url_for('main') }}" class="back-button">ホームへ戻る</a>
+    </div>
+<!-- <footer class="footer-footer">
+        <p class="footer-p">&copy; 2024 Fashion Shop</p>
+    </footer>-->
+   
+</body>
+</html>

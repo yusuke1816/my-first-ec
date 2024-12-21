@@ -165,9 +165,12 @@
                  <!-- 3. 注文内容確認 -->
                  <section class="cart">
                     <h2>カートの中身</h2>
+                    
+
                     <div id="cart-items">
                         <p>カートに商品がありません。</p>
                     </div>
+                    <p id="total-price">合計金額: ¥0</p>
                 </section>
             <h2>購入手続き</h2>
 
@@ -234,7 +237,7 @@
     <footer>
         <p>&copy; 2024 Fashion Shop</p>
     </footer>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pay.js') }}"></script>
 </body>
 </html>
 

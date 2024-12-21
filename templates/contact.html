@@ -1,0 +1,72 @@
+<!-- contact_complete.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ完了</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/qa.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <style>
+        /* 完了ページのスタイル */
+        .completed-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .completed-container h1 {
+            color: #4CAF50;
+            font-size: 2em;
+        }
+
+        .completed-container p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .completed-container a {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        .completed-container a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body><!--<header>
+    <div class="logo">
+        <h1>Fashion Shop</h1>
+    </div>
+    <nav>
+        <ul class="nav-ul">
+            <li><a href="{{ url_for('main') }}">ホーム</a></li>
+            <li><a href="#">商品一覧</a></li>
+            <li><a href="{{ url_for('process') }}"><img class="cart-img" src="{{ url_for('static', filename='img/icons8.png') }}" alt=""></a>
+                <span id="cart-count">0</span>
+            </li>
+        </ul>
+    </nav>
+</header>-->
+    
+
+    <div class="completed-container">
+        <h1>お問い合わせありがとうございました！</h1>
+        <p>ご入力いただいた内容は正常に送信されました。担当者が確認後、追ってご連絡いたします。</p>
+        <a href="{{ url_for('main') }}">ホームへ戻る</a>
+        <a href="{{ url_for('faq') }}">よくある質問</a>
+    </div>
+<!--<footer class="footer-footer">
+        <p class="footer-p">&copy; 2024 Fashion Shop</p>
+    </footer>-->
+    
+</body>
+</html>
