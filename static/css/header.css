@@ -1,43 +1,94 @@
-
+/* ヘッダー */
 header {
     background-color: white;
     color: #333;
     padding: 15px;
     text-align: center;
-    
+    display: flex;
+    justify-content: space-between; /* 左右にスペースを作って中央寄せ */
+    align-items: center;
 }
 
 header .logo h1 {
     margin: 0;
     font-size: 24px;
-    
 }
 
-nav ul {
+/* ナビゲーションリスト */
+.nav-ul {
+    display: flex;
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    gap: 20px; /* リストアイテムの間隔を調整 */
 }
 
-.nav-ul{
-    margin-left: 0%;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
+/* ナビゲーションのリンク */
 nav ul li a {
     color: #333;
     text-decoration: none;
     font-size: 18px;
 }
 
-.cart-img{
+/* カートアイコン */
+.cart-img {
     width: 20px;
     height: 20px;
-        margin: 0;
-        font-size: 24px;
-        list-style-type: none;
-        padding: 0;
+    margin: 0;
+    font-size: 24px;
+}
+
+/* ドロップダウンメニュー */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none; /* 初期状態では非表示 */
+    position: absolute; /* 親要素に対して絶対位置 */
+    top: 100%; /* 親要素の直下に表示 */
+    left: 0;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* ホバー時に表示 */
+}
+
+/* ドロップダウンアイテム */
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* ドロップダウンボタン */
+.dropbtn {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/* レスポンシブデザイン対応 */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .nav-ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: left;
+    }
 }

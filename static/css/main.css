@@ -158,6 +158,43 @@ main {
 }
 
 
+
+/* ドロップダウンのボタン */
+.dropbtn {
+
+    color: white; /* ボタンの文字色 */
+    padding: 14px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* ドロップダウンコンテンツ（非表示にする） */
+.dropdown-content {
+    display: none; /* 初期状態で非表示 */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* ドロップダウンリンクにホバーした時 */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* ドロップダウンを表示するためのスタイル */
+.dropdown:hover .dropdown-content {
+    display: block; /* ホバーしたときに表示 */
+}
+
 @media screen and (max-width: 1500px) {
 	/* 959px以下に適用されるCSS（タブレット用） */
 
@@ -301,3 +338,4 @@ main {
 .remove-btn:hover {
     background-color: darkred;
 }
+

@@ -1,6 +1,6 @@
 /*在庫状態をinstockでここに保存
 productsとしてid,nameなどのデータを保持*/
-const products = [
+const initialProducts = [
     { id: 1, name: "シャツ", price: 2500, inStock: true, stock: 3 },
     { id: 2, name: "ジーンズ", price: 3000, inStock: true, stock: 2 },
     { id: 3, name: "ジャケット", price: 5000, inStock: false, stock: 0 },
@@ -13,7 +13,7 @@ const products = [
     { id: 10, name: "ジーンズ", price: 3000, inStock: false, stock: 0 },
 ];
 
- 
+const products = JSON.parse(localStorage.getItem('products')) || initialProducts; 
 //cart.htmlのid-cartをcartとして定義して使いまわす//
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
  
@@ -75,6 +75,7 @@ function addToCart(product) {
         
 
         // localStorageにカートを保存
+        localStorage.setItem('products', JSON.stringify(products));
         localStorage.setItem('cart', JSON.stringify(cart));
 
         // カートアイコンの更新
@@ -223,3 +224,19 @@ clearCartBtn.addEventListener('click', () => {
     }
 });
 
+
+// 在庫を初期化する関数
+function resetStock() {
+    products.length = 0;
+    initialProducts.forEach(product => products.push({ ...product }));
+    localStorage.setItem('products', JSON.stringify(products));
+    location.reload();
+}
+
+// 在庫初期化ボタンのイベントリスナー
+const resetb=document.getElementById('reset-stock-btn')
+resetb.addEventListener('click', () => {
+    if (confirm('本当に在庫を初期化しますか？')) {
+        resetStock();
+    }
+});

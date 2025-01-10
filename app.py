@@ -74,7 +74,12 @@ def contact():
 def faq():
     return render_template('faq.html')
 
+@app.route('/main2')
+def main2():
+    return render_template('main2.html')
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(port=5001)
+

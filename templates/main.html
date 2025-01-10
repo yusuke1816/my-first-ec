@@ -19,14 +19,42 @@
         <nav>
             <ul class="nav-ul">
                 <li><a href="#">ホーム</a></li>
-                <li><a href="#">商品一覧</a></li>
+                
+                <!-- 商品一覧をドロップダウン化 -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">商品一覧</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('main2') }}">トップス</a>
+
+                        <a href="#">パンツ</a>
+                        <a href="#">小物・アクセサリー</a>
+                        <a href="#">アウター</a>
+                    </div>
+                </li>
+    
                 <li><a href="{{ url_for('qa') }}">お問い合わせ</a></li>
-                <li><a href="{{ url_for('process') }}"><img class="cart-img" src="{{ url_for('static', filename='img/icons8.png') }}" alt=""></a>
+    
+                <!-- 商品カテゴリー -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">商品カテゴリー</a>
+                    <div class="dropdown-content">
+                        <a href="">トップス</a>
+                        <a href="#">パンツ</a>
+                        <a href="#">小物・アクセサリー</a>
+                        <a href="#">アウター</a>
+                    </div>
+                </li>
+    
+                <!-- カートアイコン -->
+                <li><a href="{{ url_for('process') }}"><img class="cart-img" src="{{ url_for('static', filename='img/icons8.png') }}" alt="カート"></a>
                     <span id="cart-count">0</span>
                 </li>
             </ul>
         </nav>
     </header>
+    
+    
+    
     
     <!-- メインコンテンツ -->
     <main>
@@ -103,8 +131,12 @@
                 <h3>リボン</h3>
                 <p>価格: ¥1,000</p>
                 <button id="add-10" class="add-to-cart" data-status="in-stock">カートに追加</button>
+                
+     
             </div>
         </section>
+
+        <button id="reset-stock-btn">在庫を初期化</button>
     </main>
 
     <!-- フッター -->
