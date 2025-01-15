@@ -76,7 +76,9 @@ def faq():
 
 @app.route('/main2')
 def main2():
+    # main2 ページを表示する処理
     return render_template('main2.html')
+
 
 
 

@@ -50,6 +50,10 @@ nav ul li a {
 
 }
 
+.name{
+    color: black;
+    text-align: center;
+}
 
 /* メインコンテナを中央に配置 */
 main {
